@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwiftSign — iOS 应用签名与管理工具</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark">S</span> SwiftSign</a>
+    <nav class="nav-links">
+      <a href="#features">功能</a>
+      <a href="#download">下载</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="btn btn-ghost nav-cta" href="#download">立即下载</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>SwiftSign<span class="dot">.</span></h1>
+        <p class="hero-sub">基于开源引擎打造、GitHub Actions 云端打包的 iOS 应用签名与管理工具。</p>
+        <p class="hero-desc">导入安装包，选择证书，自动签名，一键安装——你想要的签名流程，都在一个 App 里完成。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#download">下载 SwiftSign</a>
+          <a class="btn btn-ghost" href="#features">看看能做什么</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="screen">
+            <div class="screen-top">管理应用</div>
+            <div class="app-row"><span class="app-ic">📱</span><span>我的App</span><span class="tag">已签名</span></div>
+            <div class="app-row"><span class="app-ic">🎮</span><span>游戏</span><span class="tag tag-off">未签名</span></div>
+            <div class="app-row"><span class="app-ic">🛠️</span><span>工具</span><span class="tag tag-off">未签名</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title">一个 App，搞定签名全流程</h2>
+      <p class="section-sub">界面直观，步骤清晰，和管理 App 一样简单。</p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-ic">📦</div>
+          <h3>管理应用</h3>
+          <p>你导入的所有应用集中管理。点一下图标 → 选证书 → 自动签名 → 一键安装。</p>
+        </div>
+        <div class="card">
+          <div class="card-ic">🔐</div>
+          <h3>管理证书</h3>
+          <p>右上角一键导入你的证书（P12 + 描述文件），全部真实、由你掌控。</p>
+        </div>
+        <div class="card">
+          <div class="card-ic">⚙️</div>
+          <h3>设置</h3>
+          <p>集中管理各项功能，包括核心的「导入应用」——自动弹出文件 App 选择安装包。</p>
+        </div>
+        <div class="card">
+          <div class="card-ic">🖋️</div>
+          <h3>自动签名</h3>
+          <p>选中证书后自动签名，签名完成回到主界面，点图标即可安装，无需手动操作。</p>
+        </div>
+        <div class="card">
+          <div class="card-ic">☁️</div>
+          <h3>云端打包</h3>
+          <p>基于 GitHub Actions 云端编译，每次打包产物真实可签名、可追溯。</p>
+        </div>
+        <div class="card">
+          <div class="card-ic">🛡️</div>
+          <h3>开源可信</h3>
+          <p>基于开源引擎 Feather 构建，源码公开，不藏私货。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="download">
+    <div class="container download-inner">
+      <div>
+        <h2 class="section-title light">下载 / 安装 SwiftSign</h2>
+        <p class="section-sub light">云端打包并用你的证书签名好的真实安装包。在 iPad 的 Safari 打开本页，点「安装」即可自动安装。</p>
+        <a class="btn btn-download" id="installBtn" href="itms-services://?action=download-manifest&url=https://github.com/hjm98-rgb/SwiftSign/releases/download/latest/manifest.plist">
+          在 iPad 上安装 SwiftSign
+        </a>
+        <div class="hero-actions" style="margin-top:14px;justify-content:center">
+          <a class="btn btn-ghost" id="downloadBtn" href="https://github.com/hjm98-rgb/SwiftSign/releases/download/latest/SwiftSign.ipa" target="_blank" rel="noopener">下载 SwiftSign.ipa</a>
+        </div>
+        <p class="download-hint" id="downloadHint">首次安装后到 设置 → 通用 → 描述文件 信任对应证书。</p>
+      </div>
+      <div class="how">
+        <h3>如何安装</h3>
+        <ol>
+          <li>用 iPad 的 Safari 打开本页</li>
+          <li>点击「在 iPad 上安装 SwiftSign」</li>
+          <li>系统自动下载并安装（证书已内置签名）</li>
+          <li>首次到 设置 → 通用 → 描述文件 信任证书</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq-item">
+        <h3>为什么下载的是未签名安装包？</h3>
+        <p>这是 iOS 系统的安全机制：任何 App 安装前都必须有 Apple 证书签名。云端只负责把真实可用的程序编译出来，签名这一步需要你的证书来完成，这样才安全、可信。</p>
+      </div>
+      <div class="faq-item">
+        <h3>SwiftSign 是基于什么做的？</h3>
+        <p>基于开源引擎 Feather 构建，通过 GitHub Actions 云端编译。源码在仓库里完全公开，欢迎查看。</p>
+      </div>
+      <div class="faq-item">
+        <h3>签名后提示「无法验证」怎么办？</h3>
+        <p>请检查你的证书是否被吊销或过期，更换有效证书后重新签名即可。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>SwiftSign · 基于开源引擎构建 · 源码公开 · 仅供个人学习与设备管理使用</p>
+    <p class="footer-small">iOS / iPadOS</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
