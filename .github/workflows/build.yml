@@ -1,0 +1,44 @@
+name: Cloud Build (云打包)
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Clone Feather engine (open source signing engine)
+        run: git clone --recursive --depth 1 https://github.com/khcrysalis/Feather.git engine
+
+      - name: Build unsigned IPA
+        working-directory: engine
+        run: make
+
+      - name: List packages
+        working-directory: engine
+        run: ls -la packages
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SwiftSign-ipa
+          path: engine/packages/*.ipa
+          if-no-files-found: error
+
+      - name: Create Release with IPA
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: engine/packages/*.ipa
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
